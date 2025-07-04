@@ -1,0 +1,24 @@
+Contact: security@hackfinity.com
+Contact: https://hackfinity.com/security
+Expires: 2026-07-03T00:00:00.000Z
+Encryption: https://hackfinity.com/pgp-key.txt
+Acknowledgments: https://hackfinity.com/security/hall-of-fame
+Preferred-Languages: en
+Canonical: https://hackfinity.com/.well-known/security.txt
+Policy: https://hackfinity.com/security/responsible-disclosure
+
+# Hackfinity Security Contact Information
+# 
+# If you discover a security vulnerability in Hackfinity,
+# please report it responsibly through one of the contact
+# methods listed above.
+#
+# We appreciate your help in keeping Hackfinity secure!
+#
+# Please include:
+# - Description of the vulnerability
+# - Steps to reproduce
+# - Impact assessment
+# - Any additional context
+#
+# Thank you for helping us maintain the security of our platform.

@@ -1,0 +1,479 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <!-- Basic Meta Tags -->
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        
+        <!-- SEO Meta Tags -->
+        <title>Hackfinity - Certificate & Sponsorship Automation Platform</title>
+        <meta name="description" content="Streamline your event management with automated certificate generation, intelligent sponsorship tracking, and AI-powered email campaigns. Built for hackathons, conferences, and tech events." />
+        <meta name="keywords" content="hackathon, certificate automation, sponsorship management, event platform, tech events, certificate generator" />
+        <meta name="author" content="Hackfinity Team" />
+        <meta name="robots" content="index, follow" />
+        
+        <!-- Open Graph / Facebook -->
+        <meta property="og:type" content="website" />
+        <meta property="og:title" content="Hackfinity - Certificate & Sponsorship Automation" />
+        <meta property="og:description" content="Automate your event management with intelligent certificate generation and sponsorship tracking." />
+        <meta property="og:url" content="https://hackfinity.com" />
+        <meta property="og:site_name" content="Hackfinity" />
+        <meta property="og:image" content="%PUBLIC_URL%/og-image.png" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        
+        <!-- Twitter Card -->
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Hackfinity - Certificate & Sponsorship Automation" />
+        <meta name="twitter:description" content="Streamline your event management with automated tools." />
+        <meta name="twitter:image" content="%PUBLIC_URL%/twitter-image.png" />
+        <meta name="twitter:creator" content="@hackfinity" />
+        
+        <!-- Theme and Display -->
+        <meta name="theme-color" content="#6366f1" />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+        <meta name="apple-mobile-web-app-title" content="Hackfinity" />
+        <meta name="msapplication-TileColor" content="#6366f1" />
+        <meta name="msapplication-config" content="%PUBLIC_URL%/browserconfig.xml" />
+        
+        <!-- Security Headers -->
+        <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://us.i.posthog.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self' https://us.i.posthog.com wss: https:;" />
+        <meta http-equiv="X-Content-Type-Options" content="nosniff" />
+        <meta http-equiv="X-Frame-Options" content="DENY" />
+        <meta http-equiv="X-XSS-Protection" content="1; mode=block" />
+        <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin" />
+        
+        <!-- Favicon and Icons -->
+        <link rel="icon" type="image/x-icon" href="%PUBLIC_URL%/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="16x16" href="%PUBLIC_URL%/favicon-16x16.png" />
+        <link rel="icon" type="image/png" sizes="32x32" href="%PUBLIC_URL%/favicon-32x32.png" />
+        <link rel="apple-touch-icon" sizes="180x180" href="%PUBLIC_URL%/apple-touch-icon.png" />
+        <link rel="mask-icon" href="%PUBLIC_URL%/safari-pinned-tab.svg" color="#6366f1" />
+        
+        <!-- Manifest and PWA -->
+        <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+        
+        <!-- Preconnect for Performance -->
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link rel="preconnect" href="https://us.i.posthog.com" />
+        
+        <!-- DNS Prefetch -->
+        <link rel="dns-prefetch" href="//fonts.googleapis.com" />
+        <link rel="dns-prefetch" href="//fonts.gstatic.com" />
+        
+        <!-- Canonical URL -->
+        <link rel="canonical" href="https://hackfinity.com" />
+        
+        <!-- Structured Data -->
+        <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "WebApplication",
+            "name": "Hackfinity",
+            "description": "Certificate and Sponsorship Automation Platform for Events",
+            "url": "https://hackfinity.com",
+            "applicationCategory": "BusinessApplication",
+            "operatingSystem": "Any",
+            "offers": {
+                "@type": "Offer",
+                "price": "0",
+                "priceCurrency": "USD"
+            },
+            "author": {
+                "@type": "Organization",
+                "name": "Hackfinity Team"
+            }
+        }
+        </script>
+    </head>
+    <body>
+        <!-- Loading Screen -->
+        <div id="loading-screen" style="
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            transition: opacity 0.5s ease-out;
+        ">
+            <div style="text-align: center; color: white;">
+                <div style="
+                    width: 50px;
+                    height: 50px;
+                    border: 3px solid rgba(255,255,255,0.3);
+                    border-radius: 50%;
+                    border-top: 3px solid white;
+                    animation: spin 1s linear infinite;
+                    margin: 0 auto 20px;
+                "></div>
+                <h2 style="margin: 0; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;">Loading Hackfinity...</h2>
+                <p style="margin: 10px 0 0; opacity: 0.8; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;">Preparing your automation platform</p>
+            </div>
+        </div>
+
+        <!-- Accessibility Skip Link -->
+        <a href="#main-content" class="skip-link" style="
+            position: absolute;
+            top: -40px;
+            left: 6px;
+            background: #000;
+            color: #fff;
+            padding: 8px;
+            text-decoration: none;
+            border-radius: 4px;
+            z-index: 10000;
+        ">Skip to main content</a>
+
+        <!-- No JavaScript Warning -->
+        <noscript>
+            <div style="
+                background: #f44336;
+                color: white;
+                padding: 20px;
+                text-align: center;
+                font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            ">
+                <h2>JavaScript Required</h2>
+                <p>Hackfinity requires JavaScript to function properly. Please enable JavaScript in your browser settings and reload this page.</p>
+                <p>For help enabling JavaScript, visit: <a href="https://www.enable-javascript.com/" style="color: #ffeb3b;">enable-javascript.com</a></p>
+            </div>
+        </noscript>
+
+        <!-- Main Application Container -->
+        <div id="root" role="main" aria-label="Hackfinity Application"></div>
+
+        <!-- Offline Notification -->
+        <div id="offline-notification" style="
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            background: #ff9800;
+            color: white;
+            padding: 12px 20px;
+            border-radius: 8px;
+            display: none;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            z-index: 1000;
+        ">
+            📡 You're currently offline. Some features may be limited.
+        </div>
+
+        <!-- Update Available Notification -->
+        <div id="update-notification" style="
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: #4caf50;
+            color: white;
+            padding: 12px 20px;
+            border-radius: 8px;
+            display: none;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            z-index: 1000;
+            cursor: pointer;
+        ">
+            🚀 New version available! Click to update.
+        </div>
+
+        <!-- Performance Styles -->
+        <style>
+            @keyframes spin {
+                0% { transform: rotate(0deg); }
+                100% { transform: rotate(360deg); }
+            }
+            
+            .skip-link:focus {
+                top: 6px;
+            }
+            
+            /* Prevent flash of unstyled content */
+            body {
+                visibility: hidden;
+            }
+            
+            body.loaded {
+                visibility: visible;
+            }
+            
+            /* Performance optimizations */
+            * {
+                box-sizing: border-box;
+            }
+            
+            img {
+                max-width: 100%;
+                height: auto;
+            }
+        </style>
+
+        <!-- Enhanced Loading and Performance Script -->
+        <script>
+            // Performance timing
+            window.hackfinityStartTime = performance.now();
+            
+            // Hide loading screen when React app loads
+            window.addEventListener('DOMContentLoaded', function() {
+                document.body.classList.add('loaded');
+                setTimeout(function() {
+                    const loadingScreen = document.getElementById('loading-screen');
+                    if (loadingScreen) {
+                        loadingScreen.style.opacity = '0';
+                        setTimeout(() => loadingScreen.remove(), 500);
+                    }
+                }, 1000);
+            });
+
+            // Offline/Online detection
+            function updateOnlineStatus() {
+                const notification = document.getElementById('offline-notification');
+                if (navigator.onLine) {
+                    notification.style.display = 'none';
+                } else {
+                    notification.style.display = 'block';
+                }
+            }
+
+            window.addEventListener('online', updateOnlineStatus);
+            window.addEventListener('offline', updateOnlineStatus);
+            updateOnlineStatus();
+
+            // Service Worker for PWA functionality
+            if ('serviceWorker' in navigator) {
+                window.addEventListener('load', function() {
+                    navigator.serviceWorker.register('/sw.js')
+                        .then(function(registration) {
+                            console.log('SW registered: ', registration);
+                            
+                            // Check for updates
+                            registration.addEventListener('updatefound', function() {
+                                const updateNotification = document.getElementById('update-notification');
+                                updateNotification.style.display = 'block';
+                                updateNotification.onclick = function() {
+                                    window.location.reload();
+                                };
+                            });
+                        })
+                        .catch(function(registrationError) {
+                            console.log('SW registration failed: ', registrationError);
+                        });
+                });
+            }
+
+            // Error handling and reporting
+            window.addEventListener('error', function(e) {
+                console.error('Global error:', e);
+                // Could send to error reporting service
+            });
+
+            window.addEventListener('unhandledrejection', function(e) {
+                console.error('Unhandled promise rejection:', e);
+                // Could send to error reporting service
+            });
+
+            // Performance monitoring
+            window.addEventListener('load', function() {
+                setTimeout(function() {
+                    const loadTime = performance.now() - window.hackfinityStartTime;
+                    console.log('App load time:', loadTime.toFixed(2) + 'ms');
+                    
+                    // Send performance data if analytics is available
+                    if (window.posthog) {
+                        window.posthog.capture('app_load_time', {
+                            load_time: loadTime,
+                            user_agent: navigator.userAgent
+                        });
+                    }
+                }, 0);
+            });
+
+            // Accessibility enhancements
+            document.addEventListener('keydown', function(e) {
+                // Add focus indicators for keyboard navigation
+                if (e.key === 'Tab') {
+                    document.body.classList.add('keyboard-navigation');
+                }
+            });
+
+            document.addEventListener('mousedown', function() {
+                document.body.classList.remove('keyboard-navigation');
+            });
+        </script>
+        <!-- Enhanced Analytics with Privacy Controls -->
+        <script>
+            // Privacy-first analytics initialization
+            !(function (t, e) {
+                var o, n, p, r;
+                e.__SV ||
+                    ((window.posthog = e),
+                    (e._i = []),
+                    (e.init = function (i, s, a) {
+                        function g(t, e) {
+                            var o = e.split(".");
+                            2 == o.length && ((t = t[o[0]]), (e = o[1])),
+                                (t[e] = function () {
+                                    t.push(
+                                        [e].concat(
+                                            Array.prototype.slice.call(
+                                                arguments,
+                                                0,
+                                            ),
+                                        ),
+                                    );
+                                });
+                        }
+                        ((p = t.createElement("script")).type =
+                            "text/javascript"),
+                            (p.crossOrigin = "anonymous"),
+                            (p.async = !0),
+                            (p.src =
+                                s.api_host.replace(
+                                    ".i.posthog.com",
+                                    "-assets.i.posthog.com",
+                                ) + "/static/array.js"),
+                            (r =
+                                t.getElementsByTagName(
+                                    "script",
+                                )[0]).parentNode.insertBefore(p, r);
+                        var u = e;
+                        for (
+                            void 0 !== a ? (u = e[a] = []) : (a = "posthog"),
+                                u.people = u.people || [],
+                                u.toString = function (t) {
+                                    var e = "posthog";
+                                    return (
+                                        "posthog" !== a && (e += "." + a),
+                                        t || (e += " (stub)"),
+                                        e
+                                    );
+                                },
+                                u.people.toString = function () {
+                                    return u.toString(1) + ".people (stub)";
+                                },
+                                o =
+                                    "init me ws ys ps bs capture je Di ks register register_once register_for_session unregister unregister_for_session Ps getFeatureFlag getFeatureFlagPayload isFeatureEnabled reloadFeatureFlags updateEarlyAccessFeatureEnrollment getEarlyAccessFeatures on onFeatureFlags onSurveysLoaded onSessionId getSurveys getActiveMatchingSurveys renderSurvey canRenderSurvey canRenderSurveyAsync identify setPersonProperties group resetGroups setPersonPropertiesForFlags resetPersonPropertiesForFlags setGroupPropertiesForFlags resetGroupPropertiesForFlags reset get_distinct_id getGroups get_session_id get_session_replay_url alias set_config startSessionRecording stopSessionRecording sessionRecordingStarted captureException loadToolbar get_property getSessionProperty Es $s createPersonProfile Is opt_in_capturing opt_out_capturing has_opted_in_capturing has_opted_out_capturing clear_opt_in_out_capturing Ss debug xs getPageViewId captureTraceFeedback captureTraceMetric".split(
+                                        " ",
+                                    ),
+                                n = 0;
+                            n < o.length;
+                            n++
+                        )
+                            g(u, o[n]);
+                        e._i.push([i, s, a]);
+                    }),
+                    (e.__SV = 1));
+            })(document, window.posthog || []);
+            
+            // Initialize with privacy-focused settings
+            posthog.init("phc_yJW1VjHGGwmCbbrtczfqqNxgBDbhlhOWcdzcIJEOTFE", {
+                api_host: "https://us.i.posthog.com",
+                person_profiles: "identified_only",
+                capture_pageview: true,
+                capture_pageleave: true,
+                loaded: function(posthog) {
+                    // Custom initialization
+                    posthog.capture('app_initialized', {
+                        timestamp: new Date().toISOString(),
+                        user_agent: navigator.userAgent,
+                        screen_resolution: screen.width + 'x' + screen.height,
+                        timezone: Intl.DateTimeFormat().resolvedOptions().timeZone
+                    });
+                },
+                // Privacy settings
+                respect_dnt: true,
+                opt_out_capturing_by_default: false,
+                opt_out_persistence_by_default: false,
+                disable_session_recording: false,
+                disable_surveys: false,
+                disable_toolbar: true,
+                // Performance settings
+                batch_requests: true,
+                request_batching: true,
+                verbose: false
+            });
+
+            // Enhanced event tracking
+            window.hackfinityAnalytics = {
+                trackEvent: function(eventName, properties = {}) {
+                    if (window.posthog) {
+                        posthog.capture(eventName, {
+                            ...properties,
+                            timestamp: new Date().toISOString(),
+                            page_url: window.location.href,
+                            page_title: document.title
+                        });
+                    }
+                },
+                
+                trackError: function(error, context = {}) {
+                    if (window.posthog) {
+                        posthog.capture('error_occurred', {
+                            error_message: error.message,
+                            error_stack: error.stack,
+                            error_type: error.name,
+                            context: context,
+                            timestamp: new Date().toISOString()
+                        });
+                    }
+                },
+                
+                trackPerformance: function(metric, value, context = {}) {
+                    if (window.posthog) {
+                        posthog.capture('performance_metric', {
+                            metric_name: metric,
+                            metric_value: value,
+                            context: context,
+                            timestamp: new Date().toISOString()
+                        });
+                    }
+                },
+                
+                setUserProperties: function(properties) {
+                    if (window.posthog) {
+                        posthog.identify(null, properties);
+                    }
+                }
+            };
+
+            // Track critical user interactions
+            document.addEventListener('click', function(e) {
+                if (e.target.closest('a') || e.target.closest('button')) {
+                    window.hackfinityAnalytics.trackEvent('ui_interaction', {
+                        element_type: e.target.tagName.toLowerCase(),
+                        element_text: e.target.textContent.trim().substring(0, 50),
+                        element_id: e.target.id || null,
+                        element_class: e.target.className || null
+                    });
+                }
+            });
+
+            // Track page visibility changes
+            document.addEventListener('visibilitychange', function() {
+                window.hackfinityAnalytics.trackEvent('page_visibility_change', {
+                    visibility_state: document.visibilityState,
+                    hidden: document.hidden
+                });
+            });
+        </script>
+
+        <!-- Additional Meta Tags for Better Discovery -->
+        <meta name="application-name" content="Hackfinity" />
+        <meta name="format-detection" content="telephone=no" />
+        <meta name="mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+        
+        <!-- Prefetch critical resources -->
+        <link rel="prefetch" href="/static/js/main.js" />
+        <link rel="prefetch" href="/static/css/main.css" />
+    </body>
+</html>

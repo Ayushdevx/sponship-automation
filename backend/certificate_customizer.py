@@ -585,3 +585,7 @@ class CertificateCustomizer:
                         {"type": "text", "x": 0, "y": 200, "width": "100%", "content": "This is to certify that"},
                         {"type": "text", "x": 0, "y": 250, "width": "100%", "content": "{{participant_name}}", "font_size": 24, "font_weight": "bold"},
                         {"type": "text", "x": 0, "y": 320, "width": "100%", "content": "has successfully completed {{course_name}}"}
+                    ]
+                }
+            }
+        }

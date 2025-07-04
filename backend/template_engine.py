@@ -421,7 +421,7 @@ class TemplateEngine:
                 "total_uses": {"$sum": 1},
                 "unique_users": {"$addToSet": "$user_id"},
                 "avg_generation_time": {"$avg": "$generation_time_ms"},
-                "success_rate": {"$avg": {"$cond": [{"$eq": ["$status", "success"]}, 1, 0]}}}
+                "success_rate": {"$avg": {"$cond": [{"$eq": ["$status", "success"]}, 1, 0]}}
             }}
         ]).to_list(length=1)
         

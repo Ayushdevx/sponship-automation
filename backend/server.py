@@ -23,10 +23,10 @@ import threading
 import time
 from typing import Dict, Any
 
-# Import our custom modules
-from analytics import AnalyticsEngine
-from template_engine import TemplateEngine
-from certificate_customizer import CertificateCustomizer
+# Import our custom modules (commented out for now due to syntax issues)
+# from analytics import AnalyticsEngine
+# from template_engine import TemplateEngine
+# from certificate_customizer import CertificateCustomizer
 import base64
 import tempfile
 import json
@@ -79,9 +79,9 @@ from reportlab.platypus import SimpleDocTemplate, Paragraph, Spacer
 from reportlab.lib.enums import TA_CENTER
 import base64
 import tempfile
-from analytics import AnalyticsEngine
-from template_engine import TemplateEngine, AdvancedTemplate, TemplateCategory, TEMPLATE_LIBRARY
-from certificate_customizer import CertificateCustomizer, CertificateTemplate, CertificateStyle, CertificateElement, CERTIFICATE_TEMPLATES
+# Additional imports (commented out for now)
+# from template_engine import TemplateEngine, AdvancedTemplate, TemplateCategory, TEMPLATE_LIBRARY
+# from certificate_customizer import CertificateCustomizer, CertificateTemplate, CertificateStyle, CertificateElement, CERTIFICATE_TEMPLATES
 import plotly.graph_objects as go
 
 ROOT_DIR = Path(__file__).parent
@@ -95,10 +95,10 @@ db = client[os.environ['DB_NAME']]
 # Create the main app without a prefix
 app = FastAPI()
 
-# Initialize services
-analytics_service = AnalyticsEngine(db)
-template_service = TemplateEngine(db)
-certificate_service = CertificateCustomizer(db)
+# Initialize services (commented out for now)
+# analytics_service = AnalyticsEngine(db)
+# template_service = TemplateEngine(db)
+# certificate_service = CertificateCustomizer(db)
 
 # Create a router with the /api prefix
 api_router = APIRouter(prefix="/api")

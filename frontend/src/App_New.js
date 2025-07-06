@@ -234,67 +234,16 @@ function App() {
   };
 
   // 📧 EMAIL SCHEDULING FUNCTIONS
-  const testConnection = async () => {
-    try {
-      console.log('🔍 DEBUG: Testing backend connection...');
-      console.log('🔍 DEBUG: Trying axios first...');
-      
-      try {
-        const response = await axios.get(`${API}/test-connection`);
-        console.log('✅ DEBUG: Axios connection test successful:', response.data);
-        addNotification('✅ Backend connection successful (axios)', 'success');
-        return true;
-      } catch (axiosError) {
-        console.error('❌ DEBUG: Axios failed:', axiosError);
-        console.log('🔍 DEBUG: Trying fetch as backup...');
-        
-        try {
-          const response = await fetch(`${API}/test-connection`);
-          const data = await response.json();
-          console.log('✅ DEBUG: Fetch connection test successful:', data);
-          addNotification('✅ Backend connection successful (fetch)', 'success');
-          return true;
-        } catch (fetchError) {
-          console.error('❌ DEBUG: Fetch also failed:', fetchError);
-          addNotification('❌ Cannot connect to backend server (both axios and fetch failed)', 'error');
-          return false;
-        }
-      }
-    } catch (error) {
-      console.error('❌ DEBUG: Connection test failed:', error);
-      addNotification('❌ Connection test failed: ' + error.message, 'error');
-      return false;
-    }
-  };
-
   const scheduleEmail = async (emailData) => {
-    console.log('🔍 DEBUG: Attempting to schedule email...');
-    console.log('🔍 DEBUG: API URL:', `${API}/schedule-email`);
-    console.log('🔍 DEBUG: Backend URL:', BACKEND_URL);
-    console.log('🔍 DEBUG: Email Data:', emailData);
-    
-    // Test connection first
-    const connectionOk = await testConnection();
-    if (!connectionOk) {
-      console.error('❌ DEBUG: Connection test failed, aborting email scheduling');
-      addNotification('Cannot connect to backend server', 'error');
-      return;
-    }
-    
     try {
-      console.log('🔍 DEBUG: Making axios POST request...');
       const response = await axios.post(`${API}/schedule-email`, emailData);
-      console.log('🔍 DEBUG: Response received:', response);
       addNotification('Email scheduled successfully!', 'success');
       fetchScheduledEmails();
       setShowScheduleModal(false);
       resetScheduleForm();
       return response.data;
     } catch (error) {
-      console.error('❌ DEBUG: Error details:', error);
-      console.error('❌ DEBUG: Error message:', error.message);
-      console.error('❌ DEBUG: Error response:', error.response);
-      console.error('❌ DEBUG: Error request:', error.request);
+      console.error('Error scheduling email:', error);
       addNotification('Error scheduling email: ' + error.message, 'error');
       throw error;
     }
@@ -447,19 +396,17 @@ function App() {
           { id: 'dashboard', label: '📊 Dashboard', icon: '📊' },
           { id: 'sponsors', label: '💼 Sponsors', icon: '💼' },
           { id: 'participants', label: '👥 Participants', icon: '👥' },
-          { id: 'scheduling', label: '⏰ Email Scheduling', icon: '⏰', highlight: true },
-          { id: 'uploads', label: '📁 Drag & Drop Upload', icon: '📁', highlight: true },
+          { id: 'scheduling', label: '⏰ Email Scheduling', icon: '⏰' },
+          { id: 'uploads', label: '📁 Drag & Drop', icon: '📁' },
           { id: 'analytics', label: '📈 Analytics', icon: '📈' }
         ].map(tab => (
           <button
             key={tab.id}
             onClick={() => setActiveTab(tab.id)}
-            className={`nav-tab ${activeTab === tab.id ? 'active' : ''} ${tab.highlight ? 'highlighted' : ''}`}
-            title={tab.label}
+            className={`nav-tab ${activeTab === tab.id ? 'active' : ''}`}
           >
             <span className="tab-icon">{tab.icon}</span>
             <span className="tab-label">{tab.label}</span>
-            {tab.highlight && <span className="feature-badge">NEW</span>}
           </button>
         ))}
       </div>
@@ -471,46 +418,6 @@ function App() {
       <div className="dashboard-header">
         <h2>🚀 Hackfinity Analytics Dashboard</h2>
         <p className="dashboard-subtitle">Monitor your platform performance and statistics</p>
-      </div>
-
-      {/* Feature Highlight Banner */}
-      <div className="feature-highlight-banner">
-        <div className="banner-content">
-          <h3>🎉 New Enhanced Features Available!</h3>
-          <div className="feature-links">
-            <button 
-              onClick={testConnection}
-              className="feature-link test-connection-link"
-              style={{backgroundColor: '#28a745', color: 'white'}}
-            >
-              <span className="feature-icon">🔧</span>
-              <div className="feature-info">
-                <strong>Test Connection</strong>
-                <p>Check backend connectivity</p>
-              </div>
-            </button>
-            <button 
-              onClick={() => setActiveTab('scheduling')}
-              className="feature-link scheduling-link"
-            >
-              <span className="feature-icon">⏰</span>
-              <div className="feature-info">
-                <strong>Email Scheduling</strong>
-                <p>Schedule emails with advanced options</p>
-              </div>
-            </button>
-            <button 
-              onClick={() => setActiveTab('uploads')}
-              className="feature-link uploads-link"
-            >
-              <span className="feature-icon">📁</span>
-              <div className="feature-info">
-                <strong>Drag & Drop Upload</strong>
-                <p>Easy file uploads with preview</p>
-              </div>
-            </button>
-          </div>
-        </div>
       </div>
 
       {/* Overview Stats */}
